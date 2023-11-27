@@ -19,6 +19,7 @@ _A list of my commonly used Git commands_
 | `git add -A`                       | Add all new and changed files to the staging area |
 | `git commit -m "[commit message]"` | Commit changes                                    |
 | `git rm -r [file-name.txt]`        | Remove a file (or folder)                         |
+| `git rm -r --cached [folde-rname]` | Remove a file (or folder)                         |
 
 ### Branching & Merging
 
