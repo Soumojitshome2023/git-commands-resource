@@ -3,6 +3,17 @@ Git Commands
 
 _A list of my commonly used Git commands_
 
+### **Add changes to a GitHub repository :** 
+```
+git add .
+```
+```
+git commit -m "Your descriptive commit message here"
+```
+```
+git push
+```
+
 ### Getting & Creating Projects
 
 | Command                                                             | Description                                |
