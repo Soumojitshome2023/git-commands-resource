@@ -14,6 +14,15 @@ git commit -m "Your descriptive commit message here"
 git push
 ```
 
+### **Reset changes to a GitHub repository :**
+
+```
+git reset --hard <commit hash>
+```
+```
+git push -f origin <branch>
+```
+
 ### Getting & Creating Projects
 
 | Command                                                             | Description                                |
