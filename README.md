@@ -3,48 +3,61 @@ Git Commands
 
 _A list of my commonly used Git commands_
 
-### **Add changes to a GitHub repository :** 
-```
-git add .
-```
-```
-git commit -m "Your descriptive commit message here"
-```
-```
-git push
-```
+---
 
-### **Reset changes to a GitHub repository :**
+### **Add Changes to a GitHub Repository :**
+
+| Command                                                | Description                                                                        |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `git add .`                                            | Stage changes: If you have new changes to push, first add them to the staging area |
+| `git commit -m "Your descriptive commit message here"` | Commit changes: Commit your changes with a message                                 |
+| `git push origin main`                                 | Push changes: Now, push your local main branch to the remote repository            |
+
+---
+
+### **Add a Remote GitHub Repository :**
+
+| Command                                                                 | Description                                                                                                               |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `git init`                                                              | Initialize a Git Repository (if you haven't already)<br />If your project is not already a Git repository, initialize one |
+| `git remote add origin https://github.com/USERNAME/REPOSITORY_NAME.git` | Add a Remote GitHub Repository<br />Use the following command to add your GitHub repository as a remote                   |
+| `git remote -v`                                                         | Verify the Remote<br />You can check if the remote repository was added successfully                                      |
+
+---
+
+### **Reset Changes to a GitHub Repository :**
 
 ```
 git reset --hard <commit hash>
 ```
+
 ```
 git push -f origin <branch>
 ```
+---
 
 ### Getting & Creating Projects
 
-| Command                                                             | Description                                |
-| ------------------------------------------------------------------- | ------------------------------------------ |
+| Command                                                           | Description                                |
+| ----------------------------------------------------------------- | ------------------------------------------ |
 | `git init`                                                        | Initialize a local Git repository          |
 | `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
 
 ### Basic Snapshotting
 
-| Command                              | Description                                       |
-| ------------------------------------ | ------------------------------------------------- |
-| `git status`                       | Check status                                        |
-| `git add [file-name.txt]`          | Add a file to the staging area                      |
-| `git add -A`                       | Add all new and changed files to the staging area   |
-| `git commit -m "[commit message]"` | Commit changes                                      |
-| `git rm -r [file-name.txt]`        | Remove a file (or folder)                           |
-| `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                      |
+| Command                            | Description                                       |
+| ---------------------------------- | ------------------------------------------------- |
+| `git status`                       | Check status                                      |
+| `git add [file-name.txt]`          | Add a file to the staging area                    |
+| `git add -A`                       | Add all new and changed files to the staging area |
+| `git commit -m "[commit message]"` | Commit changes                                    |
+| `git rm -r [file-name.txt]`        | Remove a file (or folder)                         |
+| `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                    |
 
 ### Branching & Merging
 
-| Command                                                | Description                                             |
-| ------------------------------------------------------ | ------------------------------------------------------- |
+| Command                                              | Description                                             |
+| ---------------------------------------------------- | ------------------------------------------------------- |
 | `git branch`                                         | List branches (the asterisk denotes the current branch) |
 | `git branch -a`                                      | List all branches (local and remote)                    |
 | `git branch [branch name]`                           | Create a new branch                                     |
@@ -63,8 +76,8 @@ git push -f origin <branch>
 
 ### Sharing & Updating Projects
 
-| Command                                                                             | Description                                                 |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Command                                                                           | Description                                                 |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | `git push origin [branch name]`                                                   | Push a branch to your remote repository                     |
 | `git push -u origin [branch name]`                                                | Push changes to remote repository (and remember the branch) |
 | `git push`                                                                        | Push changes to remote repository (remembered branch)       |
@@ -76,8 +89,8 @@ git push -f origin <branch>
 
 ### Inspection & Comparison
 
-| Command                                      | Description                    |
-| -------------------------------------------- | ------------------------------ |
+| Command                                    | Description                    |
+| ------------------------------------------ | ------------------------------ |
 | `git log`                                  | View changes                   |
 | `git log --summary`                        | View changes (detailed)        |
 | `git log --oneline`                        | View changes (briefly)         |
