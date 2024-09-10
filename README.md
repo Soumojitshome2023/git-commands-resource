@@ -34,6 +34,7 @@ git reset --hard <commit hash>
 ```
 git push -f origin <branch>
 ```
+
 ---
 
 ### Getting & Creating Projects
@@ -45,14 +46,15 @@ git push -f origin <branch>
 
 ### Basic Snapshotting
 
-| Command                            | Description                                       |
-| ---------------------------------- | ------------------------------------------------- |
-| `git status`                       | Check status                                      |
-| `git add [file-name.txt]`          | Add a file to the staging area                    |
-| `git add -A`                       | Add all new and changed files to the staging area |
-| `git commit -m "[commit message]"` | Commit changes                                    |
-| `git rm -r [file-name.txt]`        | Remove a file (or folder)                         |
-| `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                    |
+| Command                            | Description                                            |
+| ---------------------------------- | ------------------------------------------------------ |
+| `git status`                       | Check status                                           |
+| `git add [file-name.txt]`          | Add a file to the staging area                         |
+| `git add -A`                       | Add all new and changed files to the staging area      |
+| `git commit -m "[commit message]"` | Commit changes                                         |
+| `git rm -r [file-name.txt]`        | Remove a file (or folder)                              |
+| `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                         |
+| `git reset <file>`                 | Reset a specific file or files to their previous state |
 
 ### Branching & Merging
 
