@@ -13,7 +13,6 @@ _A list of my commonly used Git commands_
 | `git commit -m "Your descriptive commit message here"` | Commit changes: Commit your changes with a message                                 |
 | `git push origin main`                                 | Push changes: Now, push your local main branch to the remote repository            |
 
-
 ---
 
 ### **Add a Remote GitHub Repository :**
@@ -47,9 +46,7 @@ git push -f origin <branch>
 
 ---
 
-
 ### Sync your branch with the master branch using a specific commit hash from the master
-
 
 | Command                                        | Description                                                                       |
 | ---------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -60,9 +57,21 @@ git push -f origin <branch>
 | `git push --force-with-lease`                  | Force push (if necessary)                                                         |
 | `git push --set-upstream origin <your-branch>` | To push the current branch and set the remote as upstream                         |
 
-
 ---
 
+### To merge the commits from the your-branch branch into the master branch
+
+| Command                   | Description                                                                                                    |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `git checkout master`     | Switch to the master branch                                                                                    |
+| `git pull origin master`  | Pull the latest changes from the remote repository                                                             |
+| `git merge <your-branch>` | Merge the xyz branch into master                                                                               |
+| `git add .`               | If there are any merge conflicts, resolve them manually.<br />After resolving the conflicts, stage the changes |
+| `git commit -m "message"` | Complete the merge by committing                                                                               |
+| `git push origin master`  | Push the updated master branch to the remote repository                                                        |
+
+
+---
 
 ### Basic Snapshotting
 
@@ -75,7 +84,6 @@ git push -f origin <branch>
 | `git rm -r [file-name.txt]`        | Remove a file (or folder)                              |
 | `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                         |
 | `git reset <file>`                 | Reset a specific file or files to their previous state |
-
 
 ---
 
@@ -99,7 +107,6 @@ git push -f origin <branch>
 | `git stash`                                          | Stash changes in a dirty working directory              |
 | `git stash clear`                                    | Remove all stashed entries                              |
 
-
 ---
 
 ### Sharing & Updating Projects
@@ -115,7 +122,6 @@ git push -f origin <branch>
 | `git remote add origin ssh://git@github.com/[username]/[repository-name].git`     | Add a remote repository                                     |
 | `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Set a repository's origin branch to SSH                     |
 
-
 ---
 
 ### Inspection & Comparison
@@ -126,6 +132,5 @@ git push -f origin <branch>
 | `git log --summary`                        | View changes (detailed)        |
 | `git log --oneline`                        | View changes (briefly)         |
 | `git diff [source branch] [target branch]` | Preview changes before merging |
-
 
 ---
