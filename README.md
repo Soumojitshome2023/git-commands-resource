@@ -13,6 +13,7 @@ _A list of my commonly used Git commands_
 | `git commit -m "Your descriptive commit message here"` | Commit changes: Commit your changes with a message                                 |
 | `git push origin main`                                 | Push changes: Now, push your local main branch to the remote repository            |
 
+
 ---
 
 ### **Add a Remote GitHub Repository :**
@@ -44,6 +45,25 @@ git push -f origin <branch>
 | `git init`                                                        | Initialize a local Git repository          |
 | `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
 
+---
+
+
+### Sync your branch with the master branch using a specific commit hash from the master
+
+
+| Command                                        | Description                                                                       |
+| ---------------------------------------------- | --------------------------------------------------------------------------------- |
+| `git fetch origin master`                      | Fetch the latest changes from the master branch                                   |
+| `git checkout <your-branch>`                   | Switch to the branch that you want to sync with the master                        |
+| `git rebase <commit-hash>`                     | You can now rebase your branch to the specific commit hash from the master branch |
+| `git rebase --continue`                        | Resolve conflicts (if any)                                                        |
+| `git push --force-with-lease`                  | Force push (if necessary)                                                         |
+| `git push --set-upstream origin <your-branch>` | To push the current branch and set the remote as upstream                         |
+
+
+---
+
+
 ### Basic Snapshotting
 
 | Command                            | Description                                            |
@@ -55,6 +75,9 @@ git push -f origin <branch>
 | `git rm -r [file-name.txt]`        | Remove a file (or folder)                              |
 | `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                         |
 | `git reset <file>`                 | Reset a specific file or files to their previous state |
+
+
+---
 
 ### Branching & Merging
 
@@ -76,6 +99,9 @@ git push -f origin <branch>
 | `git stash`                                          | Stash changes in a dirty working directory              |
 | `git stash clear`                                    | Remove all stashed entries                              |
 
+
+---
+
 ### Sharing & Updating Projects
 
 | Command                                                                           | Description                                                 |
@@ -89,6 +115,9 @@ git push -f origin <branch>
 | `git remote add origin ssh://git@github.com/[username]/[repository-name].git`     | Add a remote repository                                     |
 | `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Set a repository's origin branch to SSH                     |
 
+
+---
+
 ### Inspection & Comparison
 
 | Command                                    | Description                    |
@@ -97,3 +126,6 @@ git push -f origin <branch>
 | `git log --summary`                        | View changes (detailed)        |
 | `git log --oneline`                        | View changes (briefly)         |
 | `git diff [source branch] [target branch]` | Preview changes before merging |
+
+
+---
