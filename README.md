@@ -71,7 +71,22 @@ git push -f origin <branch>
 | `git push origin master`  | Push the updated master branch to the remote repository                                                        |
 
 
+
 ---
+
+### Rename a Git Branch Locally and Remotely
+
+| Command                                        | Description                                                                       |
+| ---------------------------------------------- | --------------------------------------------------------------------------------- |
+| `git branch -m new-branch-name`                | Rename the local branch to `new-branch-name` (if on the branch you want to rename) |
+| `git checkout <old-branch-name>`               | Switch to the branch you want to rename (if not already on it)                     |
+| `git branch -m new-branch-name`                | Rename the local branch to `new-branch-name`                                       |
+| `git push origin --delete <old-branch-name>`   | Delete the old branch from the remote repository                                  |
+| `git push origin new-branch-name`              | Push the renamed branch to the remote repository                                  |
+| `git push --set-upstream origin new-branch-name` | Set the upstream branch for future pushes and pulls                               |
+
+---
+
 
 ### Basic Snapshotting
 
