@@ -37,6 +37,22 @@ git push -f origin <branch>
 
 ---
 
+### **Reset Working Directory to a Specific Commit's Code (Without Moving Branch Pointer)**
+
+To replace all files in your working directory with the state from a specific commit, without changing the branch pointer:
+
+```bash
+git checkout <branch-name>
+git checkout <commit-hash> -- .
+git add .
+git commit -m "Revert code to commit e87ac36"
+git push origin <branch-name>
+
+```
+
+
+---
+
 ### Getting & Creating Projects
 
 | Command                                                           | Description                                |
