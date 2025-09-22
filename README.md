@@ -37,6 +37,33 @@ git push -f origin <branch>
 
 ---
 
+
+### **Show remote URLs :**
+
+```
+git remote -v
+
+```
+Output will look like:
+
+```
+origin  https://github.com/username/repo.git (fetch)
+origin  https://github.com/username/repo.git (push)
+
+```
+
+```
+git remote get-url origin
+
+```
+
+```
+https://github.com/username/repo.git
+
+```
+
+---
+
 ### **Reset Working Directory to a Specific Commit's Code (Without Moving Branch Pointer)**
 
 To replace all files in your working directory with the state from a specific commit, without changing the branch pointer:
