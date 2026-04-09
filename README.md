@@ -1,194 +1,160 @@
-Git Commands
-============
+# 🚀 Git Commands Cheat Sheet
 
-_A list of my commonly used Git commands_
-
----
-
-### **Add Changes to a GitHub Repository :**
-
-| Command                                                | Description                                                                        |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| `git add .`                                            | Stage changes: If you have new changes to push, first add them to the staging area |
-| `git commit -m "Your descriptive commit message here"` | Commit changes: Commit your changes with a message                                 |
-| `git push origin main`                                 | Push changes: Now, push your local main branch to the remote repository            |
+A comprehensive, organized, and user-friendly collection of commonly used Git commands to streamline your workflow.
 
 ---
 
-### **Add a Remote GitHub Repository :**
+## 📑 Table of Contents
 
-| Command                                                                 | Description                                                                                                               |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `git init`                                                              | Initialize a Git Repository (if you haven't already)<br />If your project is not already a Git repository, initialize one |
-| `git remote add origin https://github.com/USERNAME/REPOSITORY_NAME.git` | Add a Remote GitHub Repository<br />Use the following command to add your GitHub repository as a remote                   |
-| `git remote -v`                                                         | Verify the Remote<br />You can check if the remote repository was added successfully                                      |
-
----
-
-### **Reset Changes to a GitHub Repository :**
-
-```
-git reset --hard <commit hash>
-```
-
-```
-git push -f origin <branch>
-```
+- [🛠️ Setup & Configuration](#setup--configuration)
+- [📝 Basic Workflow](#basic-workflow)
+- [🌿 Branching & Merging](#branching--merging)
+- [📦 Stashing & Cleaning](#stashing--cleaning)
+- [🔍 Inspection & Comparison](#inspection--comparison)
+- [🚨 Undo & Recover (The "Panic" Section)](#undo--recover-the-panic-section)
+- [🚀 Remote Repository Management](#remote-repository-management)
+- [🛠️ Advanced Operations](#advanced-operations)
 
 ---
 
+## 🛠️ Setup & Configuration
 
-### **Show remote URLs :**
-
-```
-git remote -v
-
-```
-Output will look like:
-
-```
-origin  https://github.com/username/repo.git (fetch)
-origin  https://github.com/username/repo.git (push)
-
-```
-
-```
-git remote get-url origin
-
-```
-
-```
-https://github.com/username/repo.git
-
-```
+| Command | Description |
+| :--- | :--- |
+| `git init` | Initialize a local Git repository in the current directory. |
+| `git clone <url>` | Create a local copy of a remote repository. |
+| `git remote add origin <url>` | Connect your local repository to a remote server. |
+| `git remote -v` | List all remote connections and their URLs. |
+| `git remote get-url origin` | Show the URL for the 'origin' remote. |
 
 ---
 
-### **Reset Working Directory to a Specific Commit's Code (Without Moving Branch Pointer)**
+## 📝 Basic Workflow
 
-To replace all files in your working directory with the state from a specific commit, without changing the branch pointer:
+| Command | Description |
+| :--- | :--- |
+| `git status` | Show the status of changes as untracked, modified, or staged. |
+| `git add <file>` | Add a specific file to the staging area. |
+| `git add .` | Add all new and changed files to the staging area. |
+| `git commit -m "[message]"` | Commit staged changes with a descriptive message. |
+| `git push origin <branch>` | Push local branch commits to the remote repository. |
+| `git pull` | Update your local repository with the latest changes from remote. |
+| `git pull origin <branch>` | Pull changes from a specific remote branch. |
 
+---
+
+## 🌿 Branching & Merging
+
+| Command | Description |
+| :--- | :--- |
+| `git branch` | List local branches (asterisk indicates current branch). |
+| `git branch -a` | List all branches (local and remote). |
+| `git branch <branch-name>` | Create a new branch. |
+| `git checkout <branch-name>` | Switch to a different branch. |
+| `git checkout -b <branch-name>` | Create a new branch and switch to it immediately. |
+| `git checkout -b <name> origin/<name>` | Clone a remote branch and switch to it. |
+| `git branch -d <branch-name>` | Delete a local branch (must be merged first). |
+| `git branch -D <branch-name>` | Force delete a local branch. |
+| `git merge <branch-name>` | Merge the specified branch into the current one. |
+| `git checkout -` | Switch to the branch last checked out. |
+
+---
+
+## 📦 Stashing & Cleaning
+
+| Command | Description |
+| :--- | :--- |
+| `git stash` | Temporarily store all modified tracked files. |
+| `git stash list` | List all stashed changes. |
+| `git stash pop` | Restore the most recently stashed files and remove them from stash. |
+| `git stash apply` | Restore stashed files without removing them from stash. |
+| `git stash clear` | Remove all stashed entries. |
+| `git rm -r <file>` | Remove a file (or folder) and stage the deletion. |
+| `git rm -r --cached <file>` | Remove a file from version control but keep it locally. |
+
+---
+
+## 🔍 Inspection & Comparison
+
+| Command | Description |
+| :--- | :--- |
+| `git log` | Show the commit history for the current branch. |
+| `git log --oneline` | Show commit history in a condensed, one-line format. |
+| `git log --summary` | View changes with detailed statistics (files changed, etc.). |
+| `git diff <source> <target>` | Preview changes between two branches before merging. |
+| `git diff --staged` | Show differences between the staging area and the last commit. |
+
+---
+
+## 🚨 Undo & Recover (The "Panic" Section)
+
+| Command | Description |
+| :--- | :--- |
+| `git reset <file>` | Unstage a file, keeping the changes in the working directory. |
+| `git checkout -- <file>` | Discard changes to a specific file (restore from last commit). |
+| `git commit --amend` | Replace the last commit with a new one (useful for fixing message/files). |
+| `git reset --hard <commit-hash>` | **WARNING:** Reset everything to a specific commit. All local changes will be lost. |
+| `git push -f origin <branch>` | **WARNING:** Force push changes to remote (use with caution). |
+
+### 🛠️ Restore Working Directory to a Specific Commit
+To replace all files with the state from a specific commit without moving the branch pointer:
 ```bash
 git checkout <branch-name>
 git checkout <commit-hash> -- .
 git add .
-git commit -m "Revert code to commit e87ac36"
+git commit -m "Revert code to commit <commit-hash>"
 git push origin <branch-name>
-
 ```
 
+---
+
+## 🚀 Remote Repository Management
+
+| Command | Description |
+| :--- | :--- |
+| `git remote set-url origin <url>` | Change the remote repository URL (e.g., switch to SSH). |
+| `git push -u origin <branch>` | Push and set the remote as the default upstream. |
+| `git push origin --delete <branch>` | Delete a branch from the remote repository. |
 
 ---
 
-### Getting & Creating Projects
+## 🛠️ Advanced Operations
 
-| Command                                                           | Description                                |
-| ----------------------------------------------------------------- | ------------------------------------------ |
-| `git init`                                                        | Initialize a local Git repository          |
-| `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
+### 🔄 Sync with Master (via Rebase)
+To update your branch with a specific commit hash from the master branch:
+```bash
+git fetch origin master            # Fetch latest changes
+git checkout <your-branch>         # Switch to your branch
+git rebase <commit-hash>           # Rebase on specific commit
+# Resolve conflicts if they occur
+git rebase --continue              # Continue after conflict resolution
+git push --force-with-lease        # Safely force push to remote
+```
 
----
+### 🏷️ Rename a Branch
+To rename a branch both locally and on the remote:
+```bash
+# 1. Rename locally
+git branch -m <new-name>
 
-### Sync your branch with the master branch using a specific commit hash from the master
+# 2. Delete old branch on remote
+git push origin --delete <old-name>
 
-| Command                                        | Description                                                                       |
-| ---------------------------------------------- | --------------------------------------------------------------------------------- |
-| `git fetch origin master`                      | Fetch the latest changes from the master branch                                   |
-| `git checkout <your-branch>`                   | Switch to the branch that you want to sync with the master                        |
-| `git rebase <commit-hash>`                     | You can now rebase your branch to the specific commit hash from the master branch |
-| `git rebase --continue`                        | Resolve conflicts (if any)                                                        |
-| `git push --force-with-lease`                  | Force push (if necessary)                                                         |
-| `git push --set-upstream origin <your-branch>` | To push the current branch and set the remote as upstream                         |
+# 3. Push new branch and set upstream
+git push origin <new-name>
+git push --set-upstream origin <new-name>
+```
 
----
-
-### To merge the commits from the your-branch branch into the master branch
-
-| Command                   | Description                                                                                                    |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `git checkout master`     | Switch to the master branch                                                                                    |
-| `git pull origin master`  | Pull the latest changes from the remote repository                                                             |
-| `git merge <your-branch>` | Merge the xyz branch into master                                                                               |
-| `git add .`               | If there are any merge conflicts, resolve them manually.<br />After resolving the conflicts, stage the changes |
-| `git commit -m "message"` | Complete the merge by committing                                                                               |
-| `git push origin master`  | Push the updated master branch to the remote repository                                                        |
-
-
-
----
-
-### Rename a Git Branch Locally and Remotely
-
-| Command                                        | Description                                                                       |
-| ---------------------------------------------- | --------------------------------------------------------------------------------- |
-| `git branch -m new-branch-name`                | Rename the local branch to `new-branch-name` (if on the branch you want to rename) |
-| `git checkout <old-branch-name>`               | Switch to the branch you want to rename (if not already on it)                     |
-| `git branch -m new-branch-name`                | Rename the local branch to `new-branch-name`                                       |
-| `git push origin --delete <old-branch-name>`   | Delete the old branch from the remote repository                                  |
-| `git push origin new-branch-name`              | Push the renamed branch to the remote repository                                  |
-| `git push --set-upstream origin new-branch-name` | Set the upstream branch for future pushes and pulls                               |
+### 🔀 Merging Feature into Master
+```bash
+git checkout master                # Switch to master
+git pull origin master             # Get latest master
+git merge <your-branch>            # Merge your branch
+# Resolve conflicts manually if any, then:
+git add .
+git commit -m "Merge <your-branch> into master"
+git push origin master             # Push to remote
+```
 
 ---
-
-
-### Basic Snapshotting
-
-| Command                            | Description                                            |
-| ---------------------------------- | ------------------------------------------------------ |
-| `git status`                       | Check status                                           |
-| `git add [file-name.txt]`          | Add a file to the staging area                         |
-| `git add -A`                       | Add all new and changed files to the staging area      |
-| `git commit -m "[commit message]"` | Commit changes                                         |
-| `git rm -r [file-name.txt]`        | Remove a file (or folder)                              |
-| `git rm -r --cached [folde-rname]` | Remove cached file (or folder)                         |
-| `git reset <file>`                 | Reset a specific file or files to their previous state |
-
----
-
-### Branching & Merging
-
-| Command                                              | Description                                             |
-| ---------------------------------------------------- | ------------------------------------------------------- |
-| `git branch`                                         | List branches (the asterisk denotes the current branch) |
-| `git branch -a`                                      | List all branches (local and remote)                    |
-| `git branch [branch name]`                           | Create a new branch                                     |
-| `git branch -d [branch name]`                        | Delete a branch                                         |
-| `git push origin --delete [branch name]`             | Delete a remote branch                                  |
-| `git checkout -b [branch name]`                      | Create a new branch and switch to it                    |
-| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it                  |
-| `git branch -m [old branch name] [new branch name]`  | Rename a local branch                                   |
-| `git checkout [branch name]`                         | Switch to a branch                                      |
-| `git checkout -`                                     | Switch to the branch last checked out                   |
-| `git checkout -- [file-name.txt]`                    | Discard changes to a file                               |
-| `git merge [branch name]`                            | Merge a branch into the active branch                   |
-| `git merge [source branch] [target branch]`          | Merge a branch into a target branch                     |
-| `git stash`                                          | Stash changes in a dirty working directory              |
-| `git stash clear`                                    | Remove all stashed entries                              |
-
----
-
-### Sharing & Updating Projects
-
-| Command                                                                           | Description                                                 |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `git push origin [branch name]`                                                   | Push a branch to your remote repository                     |
-| `git push -u origin [branch name]`                                                | Push changes to remote repository (and remember the branch) |
-| `git push`                                                                        | Push changes to remote repository (remembered branch)       |
-| `git push origin --delete [branch name]`                                          | Delete a remote branch                                      |
-| `git pull`                                                                        | Update local repository to the newest commit                |
-| `git pull origin [branch name]`                                                   | Pull changes from remote repository                         |
-| `git remote add origin ssh://git@github.com/[username]/[repository-name].git`     | Add a remote repository                                     |
-| `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Set a repository's origin branch to SSH                     |
-
----
-
-### Inspection & Comparison
-
-| Command                                    | Description                    |
-| ------------------------------------------ | ------------------------------ |
-| `git log`                                  | View changes                   |
-| `git log --summary`                        | View changes (detailed)        |
-| `git log --oneline`                        | View changes (briefly)         |
-| `git diff [source branch] [target branch]` | Preview changes before merging |
-
----
+_Generated for a smoother Git experience._
