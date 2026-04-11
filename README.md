@@ -7,6 +7,7 @@ A comprehensive, organized, and user-friendly collection of commonly used Git co
 ## 📑 Table of Contents
 
 - [🛠️ Setup & Configuration](#setup--configuration)
+- [👤 User Identity & Authentication](#user-identity--authentication)
 - [📝 Basic Workflow](#basic-workflow)
 - [🌿 Branching & Merging](#branching--merging)
 - [📦 Stashing & Cleaning](#stashing--cleaning)
@@ -26,8 +27,39 @@ A comprehensive, organized, and user-friendly collection of commonly used Git co
 | `git remote add origin <url>` | Connect your local repository to a remote server. |
 | `git remote -v` | List all remote connections and their URLs. |
 | `git remote get-url origin` | Show the URL for the 'origin' remote. |
+| `git remote set-url origin <url>` | Change the remote repository URL (e.g., switch to SSH). |
 
 ---
+
+## 👤 User Identity & Authentication
+
+| Command | Description |
+| :--- | :--- |
+| `git config --list` | Show all current Git configuration (including user info). |
+| `git config user.name` | View the current configured user name. |
+| `git config user.email` | View the current configured email ID. |
+| `git config --global user.name "Name"` | Set/Change your global user name. |
+| `git config --global user.email "email"` | Set/Change your global email ID. |
+| `git config --global --unset user.name` | Remove the global user name configuration. |
+
+### 🔐 Authentication & "Logout"
+Git doesn't have a direct `logout` command. Access is managed via your OS Credential Manager or SSH keys.
+
+- **To "Logout" (Clear saved credentials on Windows):**
+  - Open **Credential Manager** > **Windows Credentials**.
+  - Find `git:https://github.com` and click **Remove**.
+- **To Switch Accounts:**
+  - Update your local/global config: `git config --global user.name "NewUser"`.
+  - Next time you push, Git will prompt for new credentials if they were cleared.
+
+### 🔑 Connecting via SSH
+1. **Check for existing keys:** `ls -al ~/.ssh`
+2. **Generate new key:** `ssh-keygen -t ed25519 -C "your_email@example.com"`
+3. **Add key to SSH Agent:** `eval "$(ssh-agent -s)"` followed by `ssh-add ~/.ssh/id_ed25519`
+4. **Test connection:** `ssh -T git@github.com`
+
+---
+
 
 ## 📝 Basic Workflow
 
@@ -115,6 +147,7 @@ git push origin <branch-name>
 | `git remote set-url origin <url>` | Change the remote repository URL (e.g., switch to SSH). |
 | `git push -u origin <branch>` | Push and set the remote as the default upstream. |
 | `git push origin --delete <branch>` | Delete a branch from the remote repository. |
+| `git remote prune origin` | Remove local references to deleted remote branches. |
 
 ---
 
